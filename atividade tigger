@@ -1,0 +1,46 @@
+CREATE DATABASE loja;
+USE loja;
+CREATE TABLE clientes (
+    cliente_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefone VARCHAR(20)
+);
+CREATE TABLE produtos (
+    produto_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);
+CREATE TABLE pedidos (
+    pedido_id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    produto_id INT,
+    quantidade INT NOT NULL,
+    data_pedido DATE NOT NULL,
+    auditoria_log TEXT,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id),
+    FOREIGN KEY (produto_id) REFERENCES produtos(produto_id)
+);
+DELIMITER //
+
+CREATE TRIGGER after_pedido_insert
+AFTER INSERT ON pedidos
+FOR EACH ROW
+BEGIN
+    SET @log_message = CONCAT(
+        'Novo pedido inserido. Pedido ID: ', NEW.pedido_id, 
+        ', Cliente ID: ', NEW.cliente_id, 
+        ', Produto ID: ', NEW.produto_id, 
+        ', Quantidade: ', NEW.quantidade, 
+        ', Data do Pedido: ', NEW.data_pedido
+    );
+    UPDATE pedidos 
+    SET auditoria_log = @log_message 
+    WHERE pedido_id = NEW.pedido_id;
+END//
+
+DELIMITER ;
+INSERT INTO pedidos (cliente_id, produto_id, quantidade, data_pedido) VALUES
+(1, 1, 3, '2024-09-10');
+SELECT * FROM pedidos WHERE pedido_id = 1;
+

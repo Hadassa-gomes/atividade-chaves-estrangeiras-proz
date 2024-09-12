@@ -1,0 +1,30 @@
+CREATE TABLE pedidos (
+    pedido_id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    produto_id INT,
+    quantidade INT NOT NULL,
+    data_pedido DATE NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id),
+    FOREIGN KEY (produto_id) REFERENCES produtos(produto_id)
+);
+DELIMITER //
+
+CREATE PROCEDURE gerar_relatorio_diario()
+BEGIN
+    -- Seleciona o relatório da quantidade total de produtos comprados por dia
+    SELECT 
+        data_pedido AS 'Data',
+        SUM(quantidade) AS 'Quantidade_Total'
+    FROM pedidos
+    GROUP BY data_pedido
+    ORDER BY data_pedido;
+END//
+
+DELIMITER ;
+CALL gerar_relatorio_diario();
+INSERT INTO pedidos (cliente_id, produto_id, quantidade, data_pedido) VALUES
+(1, 1, 2, '2024-09-01'),
+(2, 1, 1, '2024-09-01'),
+(3, 2, 4, '2024-09-02'),
+(1, 1, 3, '2024-09-02'),
+(2, 3, 1, '2024-09-03');

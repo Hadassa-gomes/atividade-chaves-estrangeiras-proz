@@ -1,0 +1,31 @@
+1. Utilizar Senhas Complexas
+Descrição: Senhas complexas são mais difíceis de adivinhar ou de serem quebradas por ataques de força bruta.
+
+Práticas para Implementar:
+
+Comprimento: Exija senhas com pelo menos 12 caracteres.
+Diversidade de Caracteres: Inclua uma combinação de letras maiúsculas e minúsculas, números e caracteres especiais (como !, @, #, $, etc.).
+Evitar Padrões Comuns: Não permita o uso de palavras comuns, combinações previsíveis (como 123456 ou password), ou informações pessoais facilmente obtidas.
+Exemplo de Senha Forte: G7#rB&9tL@qW8!
+
+2. Implementar Autenticação Multifatorial (MFA)
+Descrição: A autenticação multifatorial adiciona uma camada extra de segurança, exigindo que os usuários forneçam duas ou mais formas de verificação antes de conceder acesso.
+
+Práticas para Implementar:
+
+Métodos de MFA: Combine algo que o usuário sabe (senha) com algo que o usuário tem (um código enviado por SMS, um aplicativo de autenticação como Google Authenticator ou Authy) ou algo que o usuário é (biometria, como impressões digitais ou reconhecimento facial).
+Requisitos: Faça da MFA uma exigência para acesso a sistemas críticos e para ações sensíveis dentro do sistema.
+Exemplo de MFA: Após inserir a senha, o usuário deve fornecer um código temporário gerado por um aplicativo de autenticação.
+
+3. Implementar Políticas de Expiração e Histórico de Senhas
+Descrição: As políticas de expiração e histórico de senhas ajudam a garantir que as senhas sejam alteradas regularmente e que senhas antigas não sejam reutilizadas.
+
+Práticas para Implementar:
+
+Expiração de Senha: Exija que as senhas sejam alteradas a cada 60-90 dias. Este intervalo pode variar dependendo da sensibilidade dos dados e da política da organização.
+Histórico de Senhas: Mantenha um histórico de senhas para garantir que os usuários não possam reutilizar suas senhas antigas. Um histórico de pelo menos 5-10 senhas anteriores é recomendado.
+Notificações: Envie lembretes de expiração de senha para os usuários com antecedência suficiente para que eles possam atualizar suas senhas antes que elas expirem.
+Exemplo de Política de Senha:
+
+A senha deve ser alterada a cada 90 dias.
+A senha anterior não pode ser reutilizada nas últimas 10 alterações.

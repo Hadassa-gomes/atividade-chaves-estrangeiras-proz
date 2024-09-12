@@ -1,0 +1,46 @@
+1. Confidencialidade
+Definição: Garantir que a informação seja acessível apenas para aqueles que têm permissão para vê-la.
+
+Práticas para Implementar:
+
+Controle de Acesso: Utilize sistemas de autenticação robustos e defina permissões de acesso granular para diferentes usuários e roles.
+Criptografia: Criptografe dados sensíveis em trânsito (usando TLS/SSL) e em repouso (usando criptografia em nível de banco de dados).
+Políticas de Privacidade: Certifique-se de que as informações pessoais dos clientes são protegidas e que as práticas de coleta e armazenamento estejam em conformidade com regulamentações como GDPR ou LGPD.
+2. Integridade
+Definição: Garantir que os dados estejam corretos e íntegros, e que não sejam alterados ou corrompidos de maneira não autorizada.
+
+Práticas para Implementar:
+
+Validação de Dados: Utilize constraints e triggers para garantir que os dados inseridos atendam a regras e padrões específicos.
+Auditoria e Logs: Mantenha logs de todas as alterações no banco de dados para rastrear e verificar qualquer modificação suspeita ou não autorizada.
+Backups Regulares: Realize backups regulares dos dados e teste a integridade dos backups para garantir que possam ser restaurados corretamente.
+3. Disponibilidade
+Definição: Garantir que os dados estejam disponíveis para os usuários autorizados quando necessário, e que o sistema seja resiliente a falhas.
+
+Práticas para Implementar:
+
+Replicação e Failover: Utilize replicação de dados e sistemas de failover para garantir a continuidade do serviço em caso de falhas de hardware ou software.
+Desempenho e Escalabilidade: Projete o banco de dados para suportar a carga esperada e escalar conforme necessário para atender a demanda.
+Manutenção e Atualizações: Realize manutenção regular e aplique patches de segurança para corrigir vulnerabilidades conhecidas.
+4. Autenticidade
+Definição: Garantir que os dados sejam autênticos e provenientes de uma fonte confiável.
+
+Práticas para Implementar:
+
+Controle de Acesso Baseado em Funções (RBAC): Utilize RBAC para garantir que apenas usuários autorizados possam acessar ou modificar dados.
+Verificação de Identidade: Implemente métodos fortes de autenticação (como autenticação multifatorial) para verificar a identidade dos usuários.
+Assinaturas Digitais: Use assinaturas digitais para garantir que os dados não foram alterados desde que foram criados ou recebidos.
+5. Segurança Física e Ambiental
+Definição: Garantir que o hardware e os ambientes onde o banco de dados é armazenado e operado sejam fisicamente seguros.
+
+Práticas para Implementar:
+
+Segurança Física: Proteja os servidores de banco de dados contra acesso físico não autorizado, utilizando medidas como controles de acesso físico, câmeras de segurança e salas seguras.
+Ambientes de Hospedagem: Se estiver usando serviços de nuvem, certifique-se de que o provedor de nuvem tenha práticas robustas de segurança física e ambiental.
+6. Monitoramento e Resposta a Incidentes
+Definição: Monitorar o banco de dados para detectar e responder a atividades suspeitas ou incidentes de segurança.
+
+Práticas para Implementar:
+
+Monitoramento Contínuo: Use ferramentas de monitoramento para rastrear e alertar sobre comportamentos anômalos ou tentativas de acesso não autorizado.
+Planos de Resposta a Incidentes: Desenvolva e teste planos de resposta a incidentes para lidar rapidamente com violação de dados ou outros problemas de segurança.
